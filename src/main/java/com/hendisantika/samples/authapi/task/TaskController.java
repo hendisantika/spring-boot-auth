@@ -22,7 +22,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/tasks")
 public class TaskController {
 
 	private TaskRepository taskRepository;
