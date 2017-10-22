@@ -1,4 +1,4 @@
-package com.hendisantika.samples.authapi.user;
+package com.hendisantika.samples.authapi.security;
 
 /**
  * Created by IntelliJ IDEA.
