@@ -1,4 +1,4 @@
-package com.hendisantika.samples.authapi.user;
+package com.hendisantika.samples.authapi.security;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.hendisantika.samples.authapi.user.SecurityConstants.HEADER_STRING;
-import static com.hendisantika.samples.authapi.user.SecurityConstants.SECRET;
-import static com.hendisantika.samples.authapi.user.SecurityConstants.TOKEN_PREFIX;
+import static com.hendisantika.samples.authapi.security.SecurityConstants.HEADER_STRING;
+import static com.hendisantika.samples.authapi.security.SecurityConstants.SECRET;
+import static com.hendisantika.samples.authapi.security.SecurityConstants.TOKEN_PREFIX;
 
 /**
  * Created by IntelliJ IDEA.
