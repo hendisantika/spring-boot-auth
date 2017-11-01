@@ -2,6 +2,7 @@ package com.hendisantika.samples.authapi.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hendisantika.samples.authapi.user.ApplicationUser;
+import com.hendisantika.samples.authapi.user.ApplicationUserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -33,10 +34,12 @@ import static com.hendisantika.samples.authapi.security.SecurityConstants.*;
  */
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	private AuthenticationManager authenticationManager;
+	private ApplicationUserRepository applicationUserRepository;
 
-	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+	public JWTAuthenticationFilter(AuthenticationManager authenticationManager, ApplicationUserRepository applicationUserRepository) {
 
 		this.authenticationManager = authenticationManager;
+		this.applicationUserRepository = applicationUserRepository;
 
 	}
 
