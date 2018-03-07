@@ -7,7 +7,7 @@ To DO Things :[
 
 # HTTP 403 Forbidden status is expected
 
-curl http://localhost:8080/tasks
+curl http://localhost:8080/tasks | jq .
 
 # registers a new user
 
