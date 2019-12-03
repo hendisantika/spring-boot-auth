@@ -1,6 +1,7 @@
 package com.hendisantika.samples.authapi.security;
 
 import com.hendisantika.samples.authapi.user.ApplicationUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,21 +29,15 @@ import static com.hendisantika.samples.authapi.security.SecurityConstants.SIGN_U
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
+	@Autowired
 	private UserDetailsService userDetailsService;
 
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	@Autowired
 	private ApplicationUserRepository applicationUserRepository;
 
-	public WebSecurity(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
-
-		this.userDetailsService = userDetailsService;
-
-		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-
-		this.applicationUserRepository = applicationUserRepository;
-
-	}
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {

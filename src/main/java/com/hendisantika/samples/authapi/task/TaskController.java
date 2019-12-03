@@ -1,16 +1,11 @@
 package com.hendisantika.samples.authapi.task;
 
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-auth
@@ -43,14 +38,15 @@ public class TaskController {
 
 	@PutMapping("/{id}")
 	public void editTask(@PathVariable long id, @RequestBody Task task) {
-		Task existingTask = taskRepository.findOne(id);
-		Assert.notNull(existingTask, "Task not found");
-		existingTask.setDescription(task.getDescription());
-		taskRepository.save(existingTask);
+		Optional<Task> optionalTask = taskRepository.findById(id);
+		Task task1 = optionalTask.get();
+		Assert.notNull(optionalTask, "Task not found");
+		task1.setDescription(task.getDescription());
+		taskRepository.save(task1);
 	}
 
 	@DeleteMapping("/{id}")
 	public void deleteTask(@PathVariable long id) {
-		taskRepository.delete(id);
+		taskRepository.deleteById(id);
 	}
 }
